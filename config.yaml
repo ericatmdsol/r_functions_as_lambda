@@ -1,0 +1,5 @@
+docker_img: test_r_lambda:latest
+lambda_name: test_r_lambda
+ecr_address: 833923177614.dkr.ecr.us-east-1.amazonaws.com
+role: arn:aws:iam::833923177614:role/acorn-dse-lambda
+memory: 1536
