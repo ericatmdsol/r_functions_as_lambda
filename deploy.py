@@ -20,7 +20,7 @@ def get_lambda():
 def main(cfg : DictConfig) -> None:
     docker_build = f"""docker build . --network=host -t {cfg['docker_img']}"""
     docker_login_remote = f"""aws ecr get-login-password --region us-east-1 --profile okta-orangeds | docker login --username AWS --password-stdin {cfg['ecr_address']}"""
-    docker_set_remote = f"""docker tag r_sample:latest {cfg['ecr_address']}/{cfg['lambda_name']}"""
+    docker_set_remote = f"""docker tag {cfg['docker_img']} {cfg['ecr_address']}/{cfg['lambda_name']}"""
     docker_push = f"""docker push {cfg['ecr_address']}/{cfg['lambda_name']}"""
 
     ecr_steps = [docker_build, docker_login_remote, docker_set_remote, docker_push]
