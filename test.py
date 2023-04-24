@@ -26,8 +26,9 @@ def main():
     # get the output
     output = response['Payload'].read()
     # basic structure for the output
-    output_var = json.loads(json.loads(output)['body'])
-    print(output_var)
+    print(output)
+    # output_var = json.loads(json.loads(output)['body'])
+    # print(output_var)
 
 if __name__ == '__main__':
     main()
